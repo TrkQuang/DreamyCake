@@ -64,7 +64,6 @@ function closeMenu() {
 function toggleChat() {
   const chatWidget = document.querySelector(".chat-widget");
   chatWidget.classList.toggle("active");
-  chatWidget.style.display = "block";
 }
 const pageprofile = document.getElementById("page-profile");
 //HÀM CHUYỂN TRANG (nhận vào 1 trang cần hiển thị)
