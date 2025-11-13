@@ -196,6 +196,12 @@ function chuyenTrang(id) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function moTrangThanhToan() {
+  chuyenTrang("page-checkout");
+  hienThiDanhSachDiaChi(); // hiển thị radio địa chỉ
+  capNhatTongTienThanhToan(); // cập nhật tổng tiền
+}
+
 // ==================== THANH TOÁN & ĐỊA CHỈ ====================
 function hienThiFormDiaChiMoi() {
   const form = document.getElementById("checkout-new-address-form");
@@ -339,6 +345,16 @@ function xacNhanThanhToan() {
   alert(
     `Thanh toán với địa chỉ:\n${selected.name} - ${selected.phone}\n${selected.address}`
   );
+  // Reset giỏ hàng
+  gioHang = [];
+  localStorage.removeItem("gioHang");
+
+  // Cập nhật lại giao diện
+  hienThiGioHang();
+  capNhatBadgeGioHang();
+
+  // Quay về trang sản phẩm
+  chuyenTrang("page-products");
 }
 
 // ==================== XEM LẠI & ĐẶT HÀNG ====================
