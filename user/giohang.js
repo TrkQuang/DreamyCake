@@ -411,8 +411,14 @@ function xacNhanDatHang() {
     orderId: "DH" + Date.now(),
     username: currentUser.username,
     date: new Date().toLocaleString("vi-VN"),
-    items: gioHang,
-    total: gioHang.reduce((sum, sp) => sum + sp.gia * sp.soLuong, 0),
+    items: gioHang.map((item) => ({
+      ten: item.ten,
+      name: item.ten,
+      gia: item.gia,
+      hinhAnh: item.hinhAnh,
+      sl: item.sl,
+    })),
+    total: gioHang.reduce((sum, sp) => sum + sp.gia * sp.sl, 0),
     status: "Chờ xác nhận",
   };
 
