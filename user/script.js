@@ -484,17 +484,20 @@ function enableEdit() {
     "profileNgaysinh"
   ).innerHTML = `<input type="date" id="changeNgaysinh" value="${currentUser.ngaysinh}">`;
   document.getElementById("profileGioitinh").innerHTML = `
-    <select id="changeGioitinh">
-      <option value="nam" ${
-        currentUser.gioitinh === "nam" ? "selected" : ""
-      }>Nam</option>
-      <option value="nu" ${
-        currentUser.gioitinh === "nu" ? "selected" : ""
-      }>Nữ</option>
-      <option value="khac" ${
-        currentUser.gioitinh === "khac" ? "selected" : ""
-      }>Khác</option>
-    </select>
+  <select id="changeGioitinh">
+    <option value="" disabled ${
+      !currentUser.gioitinh ? "selected" : ""
+    }>Chọn giới tính</option>
+    <option value="Nam" ${
+      currentUser.gioitinh === "Nam" ? "selected" : ""
+    }>Nam</option>
+    <option value="Nữ" ${
+      currentUser.gioitinh === "Nữ" ? "selected" : ""
+    }>Nữ</option>
+    <option value="Khác" ${
+      currentUser.gioitinh === "Khác" ? "selected" : ""
+    }>Khác</option>
+  </select>
   `;
 }
 
@@ -611,7 +614,11 @@ window.addEventListener("load", function () {
   if (logoutBtn) {
     logoutBtn.addEventListener("click", function () {
       localStorage.removeItem("currentUser");
-      updateMenu(false); // cập nhật lại menu
+      // Xóa giỏ hàng cả ở bộ nhớ localStorage và biến tại runtime
+      localStorage.removeItem("gioHang");
+      gioHang = []; // reset giỏ hàng
+      capNhatBadgeGioHang(); // cập nhật badge
+      updateMenu(false); // cập nhật menu
       LoadPage(pagehome); // quay về trang chủ
     });
   }
@@ -721,11 +728,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-function dangXuat() {
-  localStorage.removeItem("currentUser");
-  gioHang = []; // reset giỏ hàng
-  capNhatBadgeGioHang(); // cập nhật badge
-  updateMenu(false); // cập nhật menu
-  LoadPage(pagehome); // quay về trang chủ
-}

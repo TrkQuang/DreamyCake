@@ -1232,34 +1232,6 @@ button:hover {
   color: black;
 }
 
-.social {
-  display: flex;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.408);
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  margin: 0;
-  text-align: center; /* căn giữa dọc*/
-  justify-content: center; /* căn giữa ngang */
-  box-sizing: border-box;
-}
-
-.social img {
-  display: block;
-  max-width: 60%;
-  max-height: 60%;
-  margin: auto;
-  object-fit: contain;
-}
-
-/* rê chuột vào sẽ đổi sang màu trắng trong suốt */
-.social:hover {
-  background: rgba(255, 255, 255, 0);
-}
-
 .divider {
   width: 100%;
   text-align: center;
@@ -1408,9 +1380,6 @@ input:-webkit-autofill {
   .signup {
     font-size: x-large;
   }
-  .socials {
-    gap: 16px;
-  }
 }
 
 @media (max-width: 400px) {
@@ -1439,14 +1408,6 @@ input:-webkit-autofill {
   }
   .box {
     flex-direction: column;
-  }
-  .social {
-    width: 32px;
-    height: 32px;
-  }
-  .social img {
-    width: 18px;
-    height: 18px;
   }
   .input {
     padding: 12px 14px;
