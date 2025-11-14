@@ -1,9 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Hiển thị mặc định form đăng nhập
-  document.querySelector(".login").style.display = "block";
-  // document.querySelector(".dangky").style.display = "none";
+window.addEventListener("load", () => {
+  const savedUser = localStorage.getItem("rememberedUser1");
+  const savedPass = localStorage.getItem("rememberedPass1");
 
-  // Tạo tài khoản admin mặc định
+  if (savedUser && savedPass) {
+    document.getElementById("username").value = savedUser;
+    document.getElementById("password").value = savedPass;
+    document.getElementById("rememberAdmin").checked = true;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector(".login").style.display = "block";
+
   if (!localStorage.getItem("adminAccounts")) {
     const defaultAdmins = [
       { username: "admin1", password: "123456" },
@@ -20,17 +28,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value.trim();
+      const remember = document.getElementById("rememberAdmin").checked;
 
       const accounts = JSON.parse(localStorage.getItem("adminAccounts")) || [];
 
       const matched = accounts.find(
         (acc) => acc.username === username && acc.password === password
       );
-      
+
+      // LƯU GHI NHỚ
+      if (remember) {
+        localStorage.setItem("rememberedUser1", username);
+        localStorage.setItem("rememberedPass1", password);
+      } else {
+        localStorage.removeItem("rememberedUser1");
+        localStorage.removeItem("rememberedPass1");
+      }
+
       if (matched) {
         localStorage.setItem("loggedInAdmin", username);
         alert("✅ Đăng nhập thành công!");
-        window.location.href = "admin-index.html"; // đổi đường dẫn nếu cần
+        window.location.href = "admin-index.html";
       } else {
         alert("❌ Sai tên đăng nhập hoặc mật khẩu!");
       }
@@ -39,14 +57,3 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Không tìm thấy form có id='adminLoginForm'");
   }
 });
-
-// // Chuyển đổi form
-// function showRegister() {
-//   document.querySelector(".login").style.display = "none";
-//   // document.querySelector(".dangky").style.display = "block";
-// }
-
-// function showLogin() {
-//   document.querySelector(".dangky").style.display = "none";
-//   document.querySelector(".login").style.display = "block";
-// }

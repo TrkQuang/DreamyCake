@@ -620,6 +620,7 @@ window.addEventListener("load", function () {
       gioHang = []; // reset giỏ hàng
       capNhatBadgeGioHang(); // cập nhật badge
       updateMenu(false); // cập nhật menu
+      alert("Đăng xuất thành công!");
       LoadPage(pagehome); // quay về trang chủ
     });
   }
