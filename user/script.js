@@ -412,7 +412,8 @@ avatarInput.addEventListener("change", function () {
   if (!currentUser) return;
   const file = this.files[0]; //lấy file đầu tiên
   if (file) {
-    const reader = new FileReader();
+    const reader =
+      new FileReader(); /* dùng fileReader để chuyển file sang dạng base64 */
     reader.onload = function (e) {
       avatarPreview.src = e.target.result; //đổi src của ảnh
       currentUser.avat = avatarPreview.src;
