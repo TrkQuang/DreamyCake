@@ -348,75 +348,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// ==================== XÁC NHẬN THANH TOÁN ====================
-function xacNhanThanhToan() {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  if (!currentUser) {
-    alert("Vui lòng đăng nhập để đặt hàng!");
-    return;
-  }
-
-  if (gioHang.length === 0) {
-    alert("Giỏ hàng trống!");
-    return;
-  }
-  // Nếu chưa có địa chỉ nào
-  if (danhSachDiaChi.length === 0) {
-    alert(
-      "Bạn chưa có địa chỉ nhận hàng. Vui lòng thêm địa chỉ mới trước khi thanh toán!"
-    );
-    hienThiFormDiaChiMoi();
-    return;
-  }
-
-  // Kiểm tra xem người dùng đã chọn địa chỉ chưa
-  const radios = document.getElementsByName("checkout-address");
-  let selected = null;
-  for (const r of radios) {
-    if (r.checked) selected = danhSachDiaChi[r.value];
-  }
-
-  if (!selected) {
-    alert("Vui lòng chọn địa chỉ nhận hàng!");
-    return;
-  }
-
-  // Nếu hợp lệ → tiếp tục xử lý thanh toán
-  alert(
-    `Thanh toán với địa chỉ:\n${selected.name} - ${selected.phone}\n${selected.address}`
-  );
-
-  const orders = JSON.parse(localStorage.getItem("orders")) || [];
-  const newOrder = {
-    orderId: "DH" + Date.now(),
-    username: currentUser.username,
-    date: new Date().toLocaleString("vi-VN"),
-    items: gioHang.map((item) => ({
-      ten: item.ten,
-      name: item.ten,
-      gia: item.gia,
-      hinhAnh: item.hinhAnh,
-      sl: item.sl,
-    })),
-    total: gioHang.reduce((sum, sp) => sum + sp.gia * sp.sl, 0),
-    status: "Chờ xác nhận",
-  };
-
-  orders.push(newOrder);
-  localStorage.setItem("orders", JSON.stringify(orders));
-
-  // Reset giỏ hàng
-  gioHang = [];
-  localStorage.removeItem("gioHang");
-
-  // Cập nhật lại giao diện
-  hienThiGioHang();
-  capNhatBadgeGioHang();
-
-  // Quay về trang sản phẩm
-  chuyenTrang("page-products");
-}
-
 // ==================== XEM LẠI & ĐẶT HÀNG ====================
 function xemLaiDonHang() {
   const diaChiChon = document.querySelector(
@@ -465,7 +396,41 @@ function xacNhanDatHang() {
     alert("Giỏ hàng trống!");
     return;
   }
+  // Nếu chưa có địa chỉ nào
+  if (danhSachDiaChi.length === 0) {
+    alert(
+      "Bạn chưa có địa chỉ nhận hàng. Vui lòng thêm địa chỉ mới trước khi thanh toán!"
+    );
+    hienThiFormDiaChiMoi();
+    return;
+  }
+  // Kiểm tra xem người dùng đã chọn địa chỉ chưa
+  const radios = document.getElementsByName("checkout-address");
+  let selected = null;
+  for (const r of radios) {
+    if (r.checked) selected = danhSachDiaChi[r.value];
+  }
 
+  if (!selected) {
+    alert("Vui lòng chọn địa chỉ nhận hàng!");
+    return;
+  }
+
+  // Nếu hợp lệ → tiếp tục xử lý thanh toán
+  alert(
+    `Thanh toán với địa chỉ:\n${selected.name} - ${selected.phone}\n${selected.address}`
+  );
+  const diaChiChon = document.querySelector(
+    "input[name='checkout-address']:checked"
+  );
+  if (!diaChiChon) {
+    alert("Vui lòng chọn địa chỉ giao hàng!");
+    return;
+  }
+
+  const phuongThucInput = document.querySelector(
+    "input[name='checkout-payment']:checked"
+  );
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
   const newOrder = {
     orderId: "DH" + Date.now(),
@@ -496,6 +461,12 @@ function xacNhanDatHang() {
   // Cập nhật giao diện
   hienThiDanhSachDiaChi();
   capNhatBadgeGioHang();
+  hienThiGioHang();
+  localStorage.setItem("gioHang", JSON.stringify([]));
+  document.getElementById(
+    "cart-list"
+  ).innerHTML = `<p style="text-align:center; padding:30px; color:#8B4513;">
+  <i class="i-cart" style="font-size:40px;"></i><br>Giỏ hàng trống</p>`;
 
   // Chuyển về trang sản phẩm
   chuyenTrang("page-products");
