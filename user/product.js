@@ -260,11 +260,11 @@ menuRight.addEventListener("click", function (e) {
 });
 //khi click vào best seller  sẽ render ra 6 sp đầu
 document.getElementById("bestban").addEventListener("click", function () {
-  renderMenuRight(tatCaBanh.slice(0, 6)); // 6 sản phẩm đầu
+  renderMenuRight(allProducts.slice(0, 6)); // 6 sản phẩm đầu
 });
 //khi click vào sp mới sẽ cho ra 6 sp cuối
 document.getElementById("newproduct").addEventListener("click", function () {
-  renderMenuRight(tatCaBanh.slice(-6)); // 6 sản phẩm cuối
+  renderMenuRight(allProducts.slice(-6)); // 6 sản phẩm cuối
 });
 
 //=================RENDER CATEGORY CHO CATEGORYTABS & ADVANCED FILTER=========
