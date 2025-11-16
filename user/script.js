@@ -161,6 +161,12 @@ registerForm.addEventListener("submit", (e) => {
 
   emailError.textContent = "";
   emailError.style.display = "none";
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(email)) {
+    emailError.style.display = "block";
+    emailError.textContent = "Email không hợp lệ!";
+    return;
+  }
   //kiểm tra nếu tên email đã tồn tại
   if (users.some((u) => u.email === email)) {
     emailError.textContent = "Email đã được sử dụng!";
