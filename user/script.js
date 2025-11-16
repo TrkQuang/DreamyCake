@@ -254,7 +254,10 @@ const phoneInput = document.querySelector('input[name="sdt"]');
 const phoneError = phoneInput.nextElementSibling;
 phoneInput.addEventListener("input", function () {
   const regex = /^0[0-9]*$/; //chỉ cho phép số
-  if (!regex.test(this.value) || this.value.length != 10) {
+  if (this.value === "") {
+    phoneError.textContent = "";
+    phoneError.style.display = "none";
+  } else if (!regex.test(this.value) || this.value.length != 10) {
     phoneError.style.display = "block";
     phoneError.textContent =
       "Số điện thoại phải chứa 10 chữ số và bắt đầu bằng số 0";
