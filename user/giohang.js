@@ -282,7 +282,7 @@ function hienThiDanhSachDiaChi() {
   // Hiển thị các địa chỉ có sẵn
   danhSachDiaChi.forEach((dc, i) => {
     const div = document.createElement("div");
-    div.classList.add("address-item");
+    div.classList.add("checkout-address-item");
     div.innerHTML = div.innerHTML = `
     <label>
       <input type="radio" name="checkout-address" value="${i}" ${

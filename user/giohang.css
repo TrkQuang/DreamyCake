@@ -95,6 +95,13 @@
   font-weight: 500;
 }
 
+.cart-item-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -423,14 +430,14 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   border: none;
 }
-.review-order-content {
+.order-review-content {
   background: #faf8f5;
   border-radius: 14px;
   padding: 24px;
   border: 2px solid #e6ccb2;
   min-height: 120px;
 }
-.review-order-content h3 {
+.order-review-content h3 {
   margin-top: 0;
 }
 
