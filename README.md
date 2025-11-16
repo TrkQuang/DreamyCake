@@ -1,70 +1,65 @@
-# 🍰 DreamyCake - Website Bán Bánh Ngọt
+**DreamyCake — Website Bán Bánh Ngọt**
 
-Website bán bánh ngọt trực tuyến với giao diện người dùng và trang quản trị admin.
+Một trang web tĩnh (HTML/CSS/JS) để trình diễn cửa hàng bánh ngọt với giao diện người dùng và trang quản trị đơn giản.
 
-## ✨ Tính năng
+**Mô tả ngắn:**
+- **Project:** Trang bán bánh đơn giản, lưu dữ liệu cục bộ bằng `LocalStorage`.
+- **Đã deploy:** site production hiện tại: `https://dreamycakee.netlify.app` (đã deploy bằng Netlify).
 
-### 👥 Phía Người dùng:
+**Tính năng chính:**
+- **Người dùng:** trang chủ, danh mục sản phẩm, giỏ hàng, responsive.
+- **Admin:** trang đăng nhập, quản lý sản phẩm (thêm/sửa/xóa), quản lý danh mục.
 
-- 🏠 Trang chủ với danh mục sản phẩm động
-- 🛍️ Giỏ hàng với badge đếm số lượng
-- 🔍 Tìm kiếm và lọc sản phẩm theo danh mục
-- 📱 Giao diện responsive
+**Công nghệ:**
+- HTML5, CSS3, Vanilla JavaScript
+- LocalStorage (lưu sản phẩm, giỏ hàng)
 
-### 🔧 Phía Admin:
+**Cách chạy (local)**
+- Mở file `user/index.html` và `admin/admin-login.html` trực tiếp trong trình duyệt (dự án là static).
+- Nếu muốn phục vụ bằng một HTTP server (để tránh vấn đề CORS khi dùng fetch), dùng một trong các lệnh sau trong thư mục gốc của dự án:
 
-- 👤 Đăng nhập admin
-- 📦 Quản lý sản phẩm (thêm/sửa/xóa)
-- 🏷️ Quản lý danh mục
-- 💰 Quản lý giá và lợi nhuận
-- 📊 Phân trang dữ liệu
-- 🖼️ Upload hình ảnh (Base64 hoặc URL)
+```bash
+# Python 3
+python -m http.server 8000
 
-## 🚀 Công nghệ sử dụng
-
-- HTML5
-- CSS3
-- JavaScript (Vanilla JS)
-- LocalStorage API
-
-## 📁 Cấu trúc thư mục
-
-```
-DreamyCake/
-├── admin/              # Trang quản trị
-│   ├── admin-index.html
-│   ├── admin-index.css
-│   ├── admin-index.js
-│   ├── admin-login.html
-│   └── ...
-├── user/              # Trang người dùng
-│   ├── index.html
-│   ├── sanppham.js
-│   ├── giohang.js
-│   └── ...
-├── css/               # Stylesheet chung
-├── img/               # Hình ảnh
-└── README.md
+# Node.js (http-server, nếu đã cài)
+npx http-server -p 8000
 ```
 
-## 🎯 Cách sử dụng
+Sau đó mở `http://localhost:8000/user/index.html` hoặc `http://localhost:8000/admin/admin-login.html`.
 
-1. Mở `admin/admin-login.html` để đăng nhập admin
-2. Mở `user/index.html` để xem trang người dùng
+**Deploy lên Netlify (đã thực hiện)**
+- Site đã được link và deploy lên Netlify: production URL: `https://dreamycakee.netlify.app`.
+- Nếu bạn muốn deploy thủ công từ máy khác, dùng Netlify CLI trong thư mục dự án:
 
-## 💾 Lưu trữ dữ liệu
+```bash
+# đăng nhập (mở trình duyệt)
+npx netlify-cli login
 
-Dự án sử dụng LocalStorage để lưu trữ:
+# link tới site đã tồn tại (chỉ cần khi chưa link)
+npx netlify-cli link
 
-- Danh sách sản phẩm
-- Giỏ hàng
-- Giá cả
-- Danh mục
+# deploy production
+npx netlify-cli deploy --prod --dir=.
+```
 
-## 👨‍💻 Phát triển bởi
+**Cấu trúc thư mục (tóm tắt)**
+- `admin/` — trang, CSS và JS quản trị
+- `user/` — trang người dùng, CSS và JS
+- `css/` — các stylesheet dùng chung
+- `img/` — assets hình ảnh
+- `netlify.toml` — cấu hình Netlify (nếu có)
 
-DreamyCake Team
+**Góp ý / Phát triển tiếp**
+- Nếu muốn lưu dữ liệu trên server thay vì `LocalStorage`, cần API backend (ví dụ Node.js + Express).
+- Có thể thêm build step bằng bundler (Vite/Webpack) nếu dự án mở rộng.
+
+**Cách đóng góp**
+- Fork repo → tạo branch → PR với mô tả thay đổi rõ ràng.
+
+**Bản quyền**
+- © 2025 DreamyCake. Mọi quyền được bảo lưu.
 
 ---
 
-© 2025 DreamyCake. All rights reserved.
+Nếu bạn muốn tôi cập nhật README thêm thông tin cụ thể (ví dụ hướng dẫn admin, ví dụ cấu trúc `LocalStorage`, hay ảnh chụp màn hình), nói tôi biết — tôi sẽ bổ sung.
