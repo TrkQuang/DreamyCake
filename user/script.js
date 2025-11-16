@@ -131,12 +131,27 @@ registerForm.addEventListener("submit", (e) => {
   const ngaysinh = document.getElementById("ngaysinh").value;
   const gioitinh = document.getElementById("gioitinh").value;
 
+  // Lấy các thẻ hiển thị lỗi
   const usernameError = document.getElementById("usernameError");
+  const emailError = document.getElementById("emailError");
+  const phoneError = document.getElementById("phoneError");
+  const confirmPassErrorEl = document.getElementById("confirmPass");
+  const passwordError = document.getElementById("passwordError");
+
   //xóa lỗi cũ trước khi kiểm tra
   usernameError.textContent = "";
   usernameError.style.display = "none";
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const usernameRegex = /^[A-Za-z0-9_]+$/;
+  if (!usernameRegex.test(username)) {
+    usernameError.textContent =
+      "Tên tài khoản không được chứa dấu hoặc ký tự đặc biệt!";
+    usernameError.style.display = "block";
+    return;
+  }
+
   //kiểm tra nếu tên tài khoản đã tồn tại
   if (users.some((u) => u.username === username)) {
     usernameError.textContent = "Tên tài khoản đã tồn tại!";
@@ -144,7 +159,6 @@ registerForm.addEventListener("submit", (e) => {
     return;
   }
 
-  const emailError = document.getElementById("emailError");
   emailError.textContent = "";
   emailError.style.display = "none";
   //kiểm tra nếu tên email đã tồn tại
@@ -154,6 +168,49 @@ registerForm.addEventListener("submit", (e) => {
     return;
   }
 
+  // === Kiểm tra số điện thoại ===
+  const phoneRegex = /^0\d{9}$/;
+  if (!phoneRegex.test(sdt)) {
+    phoneError.textContent =
+      "Số điện thoại phải bắt đầu bằng 0 và có 10 chữ số.";
+    phoneError.style.display = "block";
+    return;
+  }
+
+  //check mk
+  const lengthReq = password.length >= 6;
+  const numberReq = /[0-9]/.test(password);
+  const upperReq = /[A-Z]/.test(password);
+  const lowerReq = /[a-z]/.test(password);
+  const latinReq = /^[A-Za-z0-9!@#$%^&*()_+\-={}[\]|\\:;"'<>,.?]+$/.test(
+    password
+  );
+
+  if (!lengthReq) {
+    passwordError.textContent = "Mật khẩu phải ít nhất 6 ký tự!";
+    passwordError.style.display = "block";
+    return;
+  }
+  if (!upperReq) {
+    passwordError.textContent = "Mật khẩu phải có ít nhất 1 chữ hoa!";
+    passwordError.style.display = "block";
+    return;
+  }
+  if (!lowerReq) {
+    passwordError.textContent = "Mật khẩu phải có ít nhất 1 chữ thường!";
+    passwordError.style.display = "block";
+    return;
+  }
+  if (!numberReq) {
+    passwordError.textContent = "Mật khẩu phải có ít nhất 1 chữ số!";
+    passwordError.style.display = "block";
+    return;
+  }
+  if (!latinReq) {
+    passwordError.textContent = "Mật khẩu không được chứa dấu tiếng Việt!";
+    passwordError.style.display = "block";
+    return;
+  }
   //kiểm tra xác nhận mật khẩu đã khớp chưa
   const confirmPass = document.getElementById("confirmPass");
   //xóa lỗi cũ trước khi check
@@ -184,9 +241,8 @@ registerForm.addEventListener("submit", (e) => {
   alert("Đăng ký thành công!");
   //chuyển sang form đăng nhập
   DangNhap();
-  registerForm.reset();
+  registerForm.reset(); //xóa dữ liệu cũ
 });
-
 //ẩn dòng lỗi khi click vào ô tên tài khoản (tên đã tồn tại)
 const usernameInput = document.getElementById("username");
 usernameInput.addEventListener("focus", function () {
