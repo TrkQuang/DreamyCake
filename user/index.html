@@ -22,7 +22,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css"
+    />
 
     <!--web hiện thị chuẩn trên đth và máy tính bảng-->
     <meta
@@ -68,10 +71,14 @@
                 <a onclick="LoadPage(pageproducts)">Tất cả sản phẩm</a>
               </li>
               <li>
-                <a onclick ="LoadPage(pagehome)" href="#bestseller">SẢN PHẨM BÁN CHẠY</a>
+                <a onclick="LoadPage(pagehome)" href="#bestseller"
+                  >SẢN PHẨM BÁN CHẠY</a
+                >
               </li>
               <li>
-                <a onclick ="LoadPage(pagehome)" href="#bestseller">SẢN PHẨM MỚI</a>
+                <a onclick="LoadPage(pagehome)" href="#bestseller"
+                  >SẢN PHẨM MỚI</a
+                >
               </li>
             </ul>
           </li>
@@ -99,7 +106,7 @@
     <div class="thanhcongcu" id="thanhcongcu">
       <div class="thanhcongcu-content">
         <h2>TÍNH NĂNG</h2>
-        <hr/>
+        <hr />
         <ul>
           <li id="loginItem"><a id="openLogin">Đăng nhập/Đăng ký</a></li>
           <li id="profileItem">
@@ -149,69 +156,72 @@
 
       <!-- DANH MỤC SẢN PHẨM -->
       <section class="product-section" id="product-section">
-<h2 class="title">DANH MỤC SẢN PHẨM</h2>
+        <h2 class="title">DANH MỤC SẢN PHẨM</h2>
 
-<div class="splide" id="productSlider">
-  <div class="splide__track">
-    <ul class="splide__list">
-      <li class="splide__slide product-item" data-category="Tiramisu cake">
-        <img src="../img/danhmucsp/tiramisu.svg" alt="Tiramisu" />
-        <strong>TIRAMISU</strong>
-      </li>
+        <div class="splide" id="productSlider">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li
+                class="splide__slide product-item"
+                data-category="Tiramisu cake"
+              >
+                <img src="../img/danhmucsp/tiramisu.svg" alt="Tiramisu" />
+                <strong>TIRAMISU</strong>
+              </li>
 
-      <li class="splide__slide product-item" data-category="Macaron">
-        <img src="../img/danhmucsp/macaron.svg" alt="Macaron" />
-        <strong>MACARON</strong>
-      </li>
+              <li class="splide__slide product-item" data-category="Macaron">
+                <img src="../img/danhmucsp/macaron.svg" alt="Macaron" />
+                <strong>MACARON</strong>
+              </li>
 
-      <li class="splide__slide product-item" data-category="Eclair">
-        <img src="../img/danhmucsp/eclair.svg" alt="Eclair" />
-        <strong>ÉCLAIR</strong>
-      </li>
+              <li class="splide__slide product-item" data-category="Eclair">
+                <img src="../img/danhmucsp/eclair.svg" alt="Eclair" />
+                <strong>ÉCLAIR</strong>
+              </li>
 
-      <li class="splide__slide product-item" data-category="Donut">
-        <img src="../img/danhmucsp/donut.svg" alt="Donut" />
-        <strong>DONUT</strong>
-      </li>
+              <li class="splide__slide product-item" data-category="Donut">
+                <img src="../img/danhmucsp/donut.svg" alt="Donut" />
+                <strong>DONUT</strong>
+              </li>
 
-      <li class="splide__slide product-item" data-category="Cupcake">
-        <img src="../img/danhmucsp/cupcake.svg" alt="Cupcake" />
-        <strong>CUPCAKE</strong>
-      </li>
+              <li class="splide__slide product-item" data-category="Cupcake">
+                <img src="../img/danhmucsp/cupcake.svg" alt="Cupcake" />
+                <strong>CUPCAKE</strong>
+              </li>
 
-      <li class="splide__slide product-item" data-category="CrepeCake">
-        <img src="../img/danhmucsp/crepe.svg" alt="CrepeCake" />
-        <strong>CREPECAKE</strong>
-      </li>
+              <li class="splide__slide product-item" data-category="CrepeCake">
+                <img src="../img/danhmucsp/crepe.svg" alt="CrepeCake" />
+                <strong>CREPECAKE</strong>
+              </li>
 
-      <li class="splide__slide product-item" data-category="Cheesecake">
-        <img src="../img/danhmucsp/cheesecake.svg" alt="Cheesecake" />
-        <strong>CHEESECAKE</strong>
-      </li>
-    </ul>
-  </div>
-</div>
+              <li class="splide__slide product-item" data-category="Cheesecake">
+                <img src="../img/danhmucsp/cheesecake.svg" alt="Cheesecake" />
+                <strong>CHEESECAKE</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-<button type="button" class="view-all" onclick="LoadPage(pageproducts)">
-  XEM TẤT CẢ
-</button>
+        <button type="button" class="view-all" onclick="LoadPage(pageproducts)">
+          XEM TẤT CẢ
+        </button>
       </section>
 
       <!-- Hot News / Bestsellers -->
-      <section class="bestseller" id = "bestseller">
-          <div class ="bestseller-full">
-            <h2 class="title">HOT NEWS</h2>
-            <div class="sanpham">
-              <!-- menu trái-->
-              <div class="menu-left">
-                <button type="button" id = "bestban" >Sản phẩm bán chạy</button>
-                <button type="button" id = "newproduct" >Sản phẩm mới</button>
-              </div>
-              <!-- menu phải - dùng js load ra -->
-              <div class="menu-right"></div>
+      <section class="bestseller" id="bestseller">
+        <div class="bestseller-full">
+          <h2 class="title">HOT NEWS</h2>
+          <div class="sanpham">
+            <!-- menu trái-->
+            <div class="menu-left">
+              <button type="button" id="bestban">Sản phẩm bán chạy</button>
+              <button type="button" id="newproduct">Sản phẩm mới</button>
             </div>
+            <!-- menu phải - dùng js load ra -->
+            <div class="menu-right"></div>
           </div>
-        </section>
+        </div>
+      </section>
     </main>
     <!-- Trang Sản Phẩm -->
     <main class="page-content hidden" id="page-products">
@@ -283,7 +293,6 @@
 
         <!-- Lưới sản phẩm -->
         <div class="product-grid" id="productGrid">
-
           <!-- Sản phẩm được render qua từ js -->
         </div>
         <!-- Phân trang -->
@@ -293,26 +302,16 @@
       </section>
     </main>
 
-      <!-- Modal Chi tiết sản phẩm -->
-      <div class="product-modal" id="productModal">
-        <div class="modal-overlay" onclick="closeProductModal()"></div>
-        <div class="modal-container">
-          <span class="close-modal" onclick="closeProductModal()">&times;</span>
-          <div class="modal-body" id="modalBody">
-            <!-- Chi tiết sản phẩm sẽ được load vào đây bằng JS -->
-            <div class="product-detail">
-              <img src="../img/danhmucsp/tiramisu.svg" alt="Tiramisu Classic" class="detail-image" />
-              <h2>Tiramisu Classic</h2>
-              <p class="detail-category"><strong>Loại:</strong> Tiramisu cake</p>
-              <p class="detail-price">350.000₫</p>
-              <button class="add-to-cart-detail">
-                <i class='bx bx-cart-add'></i> Thêm vào giỏ hàng
-              </button>
-              </div>
-            </div>
-          </div>
+    <!-- Modal Chi tiết sản phẩm -->
+    <div class="product-modal" id="productModal">
+      <div class="modal-overlay" onclick="closeProductModal()"></div>
+      <div class="modal-container">
+        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <div class="modal-body" id="modalBody">
+          <!-- Chi tiết sản phẩm sẽ được load vào đây bằng JS -->
         </div>
       </div>
+    </div>
 
     <!-- Trang Giỏ Hàng -->
     <main class="page-content hidden" id="page-cart">
@@ -344,24 +343,45 @@
         <div class="checkout-address-section">
           <h3>Địa chỉ giao hàng</h3>
           <div class="checkout-address-list" id="checkout-address-list"></div>
-          <button class="checkout-btn-secondary" onclick="hienThiFormDiaChiMoi()">
+          <button
+            class="checkout-btn-secondary"
+            onclick="hienThiFormDiaChiMoi()"
+          >
             <i class="i-add"></i> Thêm địa chỉ mới
           </button>
-          <div class="checkout-new-address-form" id="checkout-new-address-form" style="display: none">
+          <div
+            class="checkout-new-address-form"
+            id="checkout-new-address-form"
+            style="display: none"
+          >
             <h4>Nhập địa chỉ mới</h4>
             <div class="checkout-form-group">
               <label>Họ tên người nhận</label>
-              <input type="text" id="checkout-new-name" placeholder="VD: Nguyễn Văn An"/>
+              <input
+                type="text"
+                id="checkout-new-name"
+                placeholder="VD: Nguyễn Văn An"
+              />
             </div>
             <div class="checkout-form-group">
               <label>Số điện thoại</label>
-              <input type="text" id="checkout-new-phone" placeholder="VD: 0384937738" />
+              <input
+                type="text"
+                id="checkout-new-phone"
+                placeholder="VD: 0384937738"
+              />
             </div>
             <div class="checkout-form-group">
               <label>Địa chỉ chi tiết</label>
-              <input type="text" id="checkout-new-address" placeholder="VD: 115 Đường ABC, phường 5, quận Bình Thạnh" />
+              <input
+                type="text"
+                id="checkout-new-address"
+                placeholder="VD: 115 Đường ABC, phường 5, quận Bình Thạnh"
+              />
             </div>
-            <button class="checkout-btn-primary" onclick="luuDiaChiMoi()">Lưu địa chỉ</button>
+            <button class="checkout-btn-primary" onclick="luuDiaChiMoi()">
+              Lưu địa chỉ
+            </button>
           </div>
         </div>
         <!--Phương thức thanh toán-->
@@ -395,11 +415,11 @@
         </div>
         <!--Nút hành động-->
         <div class="checkout-action-buttons">
-          <button class="checkout-btn-secondary" onclick="LoadPage('page-cart')">
+          <button class="checkout-btn-secondary" onclick="LoadPage(pagecart)">
             <i class="i-back"></i> Quay lại giỏ hàng
           </button>
           <button class="checkout-btn-confirm" onclick="xemLaiDonHang()">
-          Xem lại đơn hàng
+            Xem lại đơn hàng
           </button>
         </div>
       </div>
@@ -410,11 +430,14 @@
         <h1><i class="i-check"></i></h1>
       </div>
       <div class="review-content" id="order-review-content"></div>
-        <div class="review-action-buttons">
-          <button class="checkout-btn-secondary" onclick="LoadPage('page-checkout')">Quay lại trang thanh toán</button>
-          <button class="checkout-btn-confirm" onclick="xacNhanDatHang()">Xác nhận đặt hàng</button>
-        </div>
-    
+      <div class="review-action-buttons">
+        <button class="checkout-btn-secondary" onclick="LoadPage(pagecheckout)">
+          Quay lại trang thanh toán
+        </button>
+        <button class="checkout-btn-confirm" onclick="xacNhanDatHang()">
+          Xác nhận đặt hàng
+        </button>
+      </div>
     </main>
 
     <!--Đăng nhập-->
@@ -530,7 +553,9 @@
             <i class="fa-solid fa-eye-slash eyePassword"></i>
           </div>
           <p class="error-message"></p>
-          <label class="label" for="registerConfirmPassword">Xác nhận mật khẩu</label>
+          <label class="label" for="registerConfirmPassword"
+            >Xác nhận mật khẩu</label
+          >
           <div class="password-row">
             <input
               class="input"
@@ -583,7 +608,7 @@
           <!--Ảnh cá nhân-->
           <div class="profile-left">
             <div class="avatar">
-              <img id="avatarPreview" src="../img/avt.jpg"/>
+              <img id="avatarPreview" src="../img/avt.jpg" />
               <label for="avatarInput" class="changeAvatar">Đổi ảnh</label>
               <input type="file" id="avatarInput" accept="image/*" hidden />
             </div>
@@ -628,7 +653,10 @@
       <div class="checkout-container">
         <div class="order-review" id="order-review-content"></div>
         <div class="action-buttons">
-          <button class="checkout-btn-secondary" onclick="chuyenTrang('page-checkout')">
+          <button
+            class="checkout-btn-secondary"
+            onclick="chuyenTrang('page-checkout')"
+          >
             <i class="i-back"></i> Quay lại
           </button>
           <button class="checkout-btn-confirm" onclick="xacNhanDatHang()">
@@ -637,7 +665,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--Trang xem đơn hàng đã mua-->
     <main class="page-content hidden" id="page-history">
       <section class="ordersTable">
@@ -645,8 +673,8 @@
 
         <div id="orders-list">
           <div class="orders-grid">
-          <div class="orders-column">
-            <div class="column-header">Mã đơn</div>
+            <div class="orders-column">
+              <div class="column-header">Mã đơn</div>
             </div>
           </div>
 

@@ -226,11 +226,11 @@ function applyAdvancedFilter() {
 //==============TƯƠNG TÁC DANH MỤC SẢN PHẨM=====================
 function attachCategoryClickEvents() {
   document.querySelectorAll(".product-item[data-category]").forEach((i) => {
-    i.addEventListener("click", () => {
-      const cate = this.dataset.category;
+    i.addEventListener("click", (e) => {
+      const cat = i.dataset.category;
       LoadPage(pageproducts);
       setTimeout(() => {
-        filterByCategory(cate);
+        filterByCategory(cat);
       }, 100);
     });
   });

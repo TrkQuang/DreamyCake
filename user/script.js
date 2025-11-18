@@ -4,6 +4,7 @@ const pageproducts = document.getElementById("page-products"); // Trang sản ph
 const pagecart = document.getElementById("page-cart"); // Trang giỏ hàng
 const pagecontact = document.getElementById("page-contact"); // Trang liên hệ
 const pagehistory = document.getElementById("page-history"); //trang đơn đặt hàng
+const pagecheckout = document.getElementById("page-checkout");
 
 // Sidebar và overlay
 const sidebar = document.getElementById("thanhcongcu");
